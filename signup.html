@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+    <title>Signup</title>
+</head>
+<link rel="stylesheet" href="style1.css">
+<script>
+    
+        function fn_phn(x,y)
+            {
+              var a=/^[0-9]+$/;
+              if(x.match(a))
+              {
+                return true;
+              }
+              else{
+                
+                document.getElementById(y).innerHTML="invalid"
+              }
+            }
+                    function fn_mail(x,y)
+                    {
+                        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                        if (x.match(validRegex)) {
+                               
+                            document.getElementById(y).innerHTML="";
+                           
+                        }
+                         else
+                         {
+                            document.getElementById(y).innerHTML="Enter The Valid Mail";
+                         }
+                        }
+                        function fn_pw(x,y)
+                        {
+                            var passw=  /^[A-Za-z]\w{7,14}$/;
+                            if(x.match(passw))
+                            {
+                                document.getElementById(y).innerHTML="";
+                            }
+                            else
+                            {
+                                document.getElementById(y).innerHTML="Password must have 7 to 16 characters which contain only characters, numeric digits, underscore and first character must be a letter";
+                            }
+                        }
+        </script>
+<body>
+
+
+    <form action="login.html" style="border:1px solid #ccc"></form>
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+  
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email"  onchange="fn_mail(this.value,'email')">
+      <span id="name" class="error"></span>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="pass"  onchange="fn_pw(this.value,'pass')">
+      <span id="pass" class="error"></span>
+
+      <label for="number"><b>Mobile Number</b></label>
+      <input type="number" placeholder="Enter Number" name="num"  onchange="fn_phn(this.value,'num')">
+      <span id="num" class="error"></span>
+      
+      <div class="button1">
+        <form action="login.html">
+            <button type="submit" class="signupbtn">Login</button> 
+            <button type="button"  class="cancelbtn">Cancel</button>
+    </form>
+        
+    
+      </div>
+    </div>
+  </form>
+</body>
+</html>
